@@ -1,9 +1,14 @@
+//have 3 different type of requests
+//DELETE (delete)
+//GET (read)
+//PATCH (update)
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (request, { params }) => {
     try {
         await connectToDB()
+         //get one individual prompt by id
 
         const prompt = await Prompt.findById(params.id).populate("creator")
         if (!prompt) return new Response("Prompt Not Found", { status: 404 });
@@ -14,8 +19,9 @@ export const GET = async (request, { params }) => {
         return new Response("Internal Server Error", { status: 500 });
     }
 }
-
+//PATCH (update)
 export const PATCH = async (request, { params }) => {
+    //passing for update
     const { prompt, tag } = await request.json();
 
     try {
@@ -40,6 +46,7 @@ export const PATCH = async (request, { params }) => {
     }
 };
 
+// delete route
 export const DELETE = async (request, { params }) => {
     try {
         await connectToDB();

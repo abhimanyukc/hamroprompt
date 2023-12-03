@@ -1,9 +1,10 @@
 import Link from "next/link";
-
+// our from is accepting type, post, setPost, submitting, handleSubmit 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
+          {/* passing type through props */}
         <span className='blue_gradient'>{type} Post</span>
       </h1>
       <p className='desc text-left max-w-md'>
@@ -12,6 +13,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </p>
 
       <form
+      //handlesubmit passed through props
         onSubmit={handleSubmit}
         className='mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism'
       >
@@ -22,7 +24,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           <textarea
             value={post.prompt}
+             //we use callback function where we get event
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
+             //update the prompt of the post
             placeholder='Write your post here'
             required
             className='form_textarea '

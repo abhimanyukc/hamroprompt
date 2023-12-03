@@ -5,11 +5,14 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+  //display the prompt that user created
+  //passing prompts
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
+   //defining session
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
-
+ //state for whether post has been copied already or not
   const [copied, setCopied] = useState("");
 
   const handleProfileClick = () => {
@@ -20,9 +23,12 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
+  //handlecopy function for copy implmn
   const handleCopy = () => {
+     //update
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
+    //reset set
     setTimeout(() => setCopied(false), 3000);
   };
 
@@ -51,6 +57,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           </div>
         </div>
 
+ {/* for copy button */}
         <div className='copy_btn' onClick={handleCopy}>
           <Image
             src={
@@ -65,14 +72,17 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
+{/* render post.prompt */}
       <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
+        //to click on specific tag and see all related posts
         onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
+         {/* render post.tag */}
         #{post.tag}
       </p>
-
+ {/*//check if we have session  , creator save button in _id*/ }
       {session?.user.id === post.creator._id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p

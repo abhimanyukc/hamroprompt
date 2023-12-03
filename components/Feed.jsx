@@ -1,9 +1,14 @@
+//we show all prompts
+//here we display all created prompt in homepage
+//get request to get all prompts from database to feed
+
 "use client";
 
 import { useState, useEffect } from "react";
-
+//we use promptcard component in this file
 import PromptCard from "./PromptCard";
 
+//creating promptcard list function
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
@@ -19,21 +24,29 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
+  //update our state with all the posts by creating a new usestate field
+
   const [allPosts, setAllPosts] = useState([]);
 
   // Search states
+  // defining searchtext using usestate
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
+    //get response
+    //we called api endpoint and we need to create file route.js in folder  api/prommpt
     const response = await fetch("/api/prompt");
+     //get data
     const data = await response.json();
 
     setAllPosts(data);
   };
 
+  //from our feed we have to make get request to our own nextjs API
   useEffect(() => {
+    //calling
     fetchPosts();
   }, []);
 
@@ -47,6 +60,8 @@ const Feed = () => {
     );
   };
 
+   //declaring handlesearchchange function
+  //it gets event
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
     setSearchText(e.target.value);
@@ -69,6 +84,7 @@ const Feed = () => {
 
   return (
     <section className='feed'>
+       {/* form for search of our feed */}
       <form className='relative w-full flex-center'>
         <input
           type='text'
@@ -82,7 +98,9 @@ const Feed = () => {
 
       {/* All Prompts */}
       {searchText ? (
+        //rendering  promptcardlist component
         <PromptCardList
+         //accept data and handletagclick
           data={searchedResults}
           handleTagClick={handleTagClick}
         />

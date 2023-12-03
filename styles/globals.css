@@ -6,7 +6,10 @@
 
 /* 
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
+//copying this code from gist code of jsmastery
+//u will see import for fonts and tailwind
+//u will see some useful styling utility functions.and some setup of main div
+  */
 
 .main {
   width: 100vw;
