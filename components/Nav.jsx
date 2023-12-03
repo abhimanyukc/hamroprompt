@@ -41,7 +41,7 @@ const Nav = () => {
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Promptopia</p>
+        <p className='logo_text'>HamroPrompt</p>
       </Link>
 {/* alert to be able to know what  we have  there so just alertand  we dont have to open in console
           and it show undefined alert means there is no user*/}
