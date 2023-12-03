@@ -11,8 +11,8 @@ import Provider from "@components/Provider";
 
 //changing metadata of our appln
 export const metadata = {
-  title: "YourPrompt",
-  description: "Discover & Share AI Prompts",
+  title: "\ProjectInfo",
+  description: "Discover\ & Share Your Project Concepts",
 };
 
 //passing children through props

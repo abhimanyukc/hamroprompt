@@ -7,13 +7,13 @@ const Home = () => (
     //classname that consist _ coming from own styling within globals.css
   <section className='w-full flex-center flex-col'>
     <h1 className='head_text text-center'>
-      Discover & Share
+      Share Your
       <br className='max-md:hidden' />
-      <span className='orange_gradient text-center'> AI-Powered Prompts</span>
+      <span className='orange_gradient text-center'> Project Concept Here</span>
     </h1>
     <p className='desc text-center'>
-      HamroPrompt is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
+      Projectinfo is an open-source web platform to 
+      discover, create  share and deliver your project idea
     </p>
 
     <Feed />

@@ -37,11 +37,11 @@ const Nav = () => {
         <Image
           src='/assets/images/logo.svg'
           alt='logo'
-          width={30}
-          height={30}
+          width={20}
+          height={20}
           className='object-contain'
         />
-        <p className='logo_text'>HamroPrompt</p>
+        <p className='logo_text'>ProjectInfo</p>
       </Link>
 {/* alert to be able to know what  we have  there so just alertand  we dont have to open in console
           and it show undefined alert means there is no user*/}
@@ -66,8 +66,8 @@ const Nav = () => {
             <Link href='/profile'>
               <Image
                 src={session?.user.image}
-                width={37}
-                height={37}
+                width={32}
+                height={32}
                 className='rounded-full'
                 alt='profile'
               />
@@ -106,8 +106,8 @@ const Nav = () => {
             <Image
             //replacing logo with real icon
               src={session?.user.image}
-              width={37}
-              height={37}
+              width={32}
+              height={32}
               className='rounded-full'
               alt='profile'
               //onclick property for dropdown in mobile navbar

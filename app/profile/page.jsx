@@ -37,7 +37,7 @@ const MyProfile = () => {
 
   const handleDelete = async (post) => {
     const hasConfirmed = confirm(
-      "Are you sure you want to delete this prompt?"
+      "Are you sure you want to delete this page?"
     );
 
     if (hasConfirmed) {
@@ -58,7 +58,7 @@ const MyProfile = () => {
   return (
     <Profile
       name='My'
-      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+      desc='Welcome to your  profile page. Here ,you can share all the projects u did and project idea coming in your mind'
       data={myPosts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
