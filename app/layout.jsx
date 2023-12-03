@@ -11,7 +11,7 @@ import Provider from "@components/Provider";
 
 //changing metadata of our appln
 export const metadata = {
-  title: "Promptopia",
+  title: "YourPrompt",
   description: "Discover & Share AI Prompts",
 };
 
